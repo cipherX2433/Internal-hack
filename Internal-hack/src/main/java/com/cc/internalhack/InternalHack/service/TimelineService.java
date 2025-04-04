@@ -13,5 +13,5 @@ public interface TimelineService {
 
     List<Timeline> getAllTimeline();
 
-    Timeline getTimeline(String name);
+    Timeline getTimeline(String eventName);
 }

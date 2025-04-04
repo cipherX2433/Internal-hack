@@ -40,9 +40,9 @@ public class TimelineController {
         return ResponseEntity.ok(timeline);
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<Timeline> getTimeline(@PathVariable String name){
-        Timeline timeline = timelineService.getTimeline(name);
+    @GetMapping("/{eventName}")
+    public ResponseEntity<Timeline> getTimeline(@PathVariable String eventName){
+        Timeline timeline = timelineService.getTimeline(eventName);
         return ResponseEntity.ok(timeline);
     }
 

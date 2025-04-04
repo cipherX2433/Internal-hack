@@ -43,9 +43,9 @@ public class TimelineServiceImpl implements TimelineService{
     }
 
     @Override
-    public Timeline getTimeline(String name) {
-         return timelineRepository.findByName(name)
-                .orElseThrow(() -> new ResourceNotFoundException("Timeline not found with this name"));
+    public Timeline getTimeline(String eventName) {
+         return timelineRepository.findByeventName(eventName)
+                .orElseThrow(() -> new ResourceNotFoundException("Timeline not found with this eventName"));
 
     }
 }

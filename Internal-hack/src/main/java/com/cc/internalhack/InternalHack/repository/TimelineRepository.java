@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface TimelineRepository extends JpaRepository<Timeline, Long> {
-    Optional<Timeline> findByName(String name);
+    Optional<Timeline> findByeventName(String eventName);
 }
