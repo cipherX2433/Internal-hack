@@ -40,9 +40,18 @@ public class TimelineController {
         return ResponseEntity.ok(timeline);
     }
 
-    @GetMapping("/{eventName}")
+    @GetMapping("/event/{eventName}")
     public ResponseEntity<Timeline> getTimeline(@PathVariable String eventName){
         Timeline timeline = timelineService.getTimeline(eventName);
+        return ResponseEntity.ok(timeline);
+    }
+
+    @PutMapping("/update/{id}")
+    @PreAuthorize("hasRole('Admin')")
+    public ResponseEntity<Timeline> updateTimeline(@PathVariable Long id,
+                                                   @RequestBody TimelineRequestDto timelineRequestDto
+                                                    ){
+        Timeline timeline = timelineService.updateTimeline(id, timelineRequestDto);
         return ResponseEntity.ok(timeline);
     }
 

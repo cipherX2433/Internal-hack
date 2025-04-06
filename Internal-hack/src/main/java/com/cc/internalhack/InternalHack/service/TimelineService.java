@@ -4,7 +4,6 @@ import com.cc.internalhack.InternalHack.dto.TimelineRequestDto;
 import com.cc.internalhack.InternalHack.entity.Timeline;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface TimelineService {
     Timeline createTimeline(TimelineRequestDto timelineRequestDto);
@@ -14,4 +13,6 @@ public interface TimelineService {
     List<Timeline> getAllTimeline();
 
     Timeline getTimeline(String eventName);
+
+    Timeline updateTimeline(Long id, TimelineRequestDto timelineRequestDto);
 }

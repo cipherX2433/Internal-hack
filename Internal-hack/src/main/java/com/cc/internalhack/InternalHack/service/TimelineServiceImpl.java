@@ -48,4 +48,17 @@ public class TimelineServiceImpl implements TimelineService{
                 .orElseThrow(() -> new ResourceNotFoundException("Timeline not found with this eventName"));
 
     }
+
+    @Override
+    public Timeline updateTimeline(Long id, TimelineRequestDto timelineRequestDto) {
+        Timeline existingTimeline = timelineRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Timeline not available with this id"));
+
+        // Update fields based on TimelineRequestDto
+        existingTimeline.setEventName(timelineRequestDto.getEventName());
+        existingTimeline.setEventStartDate(timelineRequestDto.getEventStartDate());
+        existingTimeline.setEventEndDate(timelineRequestDto.getEventEndDate());
+
+        return timelineRepository.save(existingTimeline);
+    }
 }
